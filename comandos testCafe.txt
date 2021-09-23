@@ -1,0 +1,36 @@
+Different browsers 
+testcafe --list-browsers 
+npx testcafe chrome,firefox,edge,ie tests/clientFuncionTest.js 
+npx testcafe all tests/clientFuncionTest.js 
+
+
+concurrency (mas de un test a la vez)
+npx testcafe -c 2 testcafe chrome tests/
+
+meta filtering
+npx testcafe chrome tests/setMetaTest.js --test-meta env=production
+
+test filtering
+npx testcafe chrome tests/setMetaTest.js - "Second Test" 
+
+sin GUI (chrome firefox
+npx testcafe firefox:headless tests/skipTest.js 
+
+live mode
+npx testcafe chrome tests/firstTest.js -L 
+
+debug on fail
+npx testcafe chrome tests/debugTest.js --debug-on-fail
+
+take screenshot on fail
+TestCafe>npx testcafe chrome tests/waitTest.js -s takeOnFails=true
+
+take videos
+npx testcafe chrome tests/waitTest.js --video artifacts/videos
+
+only fails
+>npx testcafe chrome tests/waitTest.js --video artifacts/videos --video-option failedOnly=true
+
+Separeted test
+>npx testcafe chrome tests/waitTest.js --video artifacts/videos --video-option singleFile=false
+
